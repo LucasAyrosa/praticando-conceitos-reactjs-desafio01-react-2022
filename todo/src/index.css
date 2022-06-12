@@ -18,7 +18,11 @@
 
 :focus {
   outline: transparent;
-  box-shadow: 0 0 0 2px var(--blue);
+  box-shadow: 0 0 0 2px var(--purple-dark);
+}
+
+input:focus {
+  box-shadow: none;
 }
 
 * {

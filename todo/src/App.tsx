@@ -4,13 +4,13 @@ import { Tasks } from './components/Tasks';
 
 function App() {
   return (
-    <div>
+    <main>
       <Header />
 
       <NewTask />
       
       <Tasks />
-    </div>
+    </main>
   )
 }
 

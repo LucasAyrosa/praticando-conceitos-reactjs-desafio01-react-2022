@@ -15,7 +15,11 @@
     border-radius: 8px;
     padding: 1rem;
     width: 100%;
-    color: var(--gray-300);
+    color: var(--gray-100);
+}
+
+.new-task input:focus {
+    border: 1px solid var(--purple-dark);
 }
 
 .new-task button {
