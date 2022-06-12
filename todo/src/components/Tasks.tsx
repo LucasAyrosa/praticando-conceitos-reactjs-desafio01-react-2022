@@ -6,19 +6,22 @@ import './Tasks.css';
 import { ITask } from '../contracts/ITask';
 
 interface TasksProps {
-    tasks: {
-        content: string,
-        done: boolean
-    }[],
-    deleteTask: (task: ITask) => void
+    tasks: ITask[],
+    deleteTask: (task: ITask) => void,
+    toogleCompleteTask: (task: ITask) => void
 }
 
-export function Tasks({ tasks, deleteTask }: TasksProps) {
+export function Tasks({ tasks, deleteTask, toogleCompleteTask }: TasksProps) {
     const totalTasks = tasks.length;
-    const totalDoneTasks = tasks.filter(task => task.done === true).length;
+    const totalCompletedTasks = tasks.filter(task => task.isComplete === true).length;
 
     const tasksOrEmptyComponent = tasks.length ?
-        tasks.map((task, index) => <Task key={task.content + index} task={task} deleteTask={deleteTask} />) :
+        tasks.map((task, index) => <Task
+            key={task.content + index}
+            task={task}
+            deleteTask={deleteTask}
+            toogleCompleteTask={toogleCompleteTask}
+        />) :
         [
             (
                 <div className='empty'>
@@ -38,7 +41,7 @@ export function Tasks({ tasks, deleteTask }: TasksProps) {
                 </div>
                 <div className='done'>
                     Concluídas
-                    <Badge content={totalDoneTasks + ' de ' + totalTasks} />
+                    <Badge content={totalCompletedTasks + ' de ' + totalTasks} />
                 </div>
             </div>
             {tasksOrEmptyComponent}

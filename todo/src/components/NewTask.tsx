@@ -13,7 +13,7 @@ export function NewTask({ createTask }: NewTaskProps) {
     function handleCreateTask(event: FormEvent) {
         event.preventDefault();
         if (newTaskText.trim()) {
-            createTask({ content: newTaskText, done: false });
+            createTask({ content: newTaskText, isComplete: false });
             setNewTaskText('');
         }
     }
