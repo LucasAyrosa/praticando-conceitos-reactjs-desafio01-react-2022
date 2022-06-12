@@ -8,6 +8,8 @@ function App() {
       <Header />
 
       <NewTask />
+      
+      <Tasks />
     </div>
   )
 }
