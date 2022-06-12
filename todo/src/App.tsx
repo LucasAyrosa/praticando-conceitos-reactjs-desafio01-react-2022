@@ -11,6 +11,10 @@ function App() {
     setTasks([...tasks, task]);
   }
 
+  function deleteTask(taskToDelete: ITask) {
+    setTasks(tasks.filter(task => task !== taskToDelete))
+  }
+
 
   return (
     <main>
@@ -18,7 +22,7 @@ function App() {
 
       <NewTask createTask={createTask} />
       
-      <Tasks tasks={tasks} />
+      <Tasks tasks={tasks} deleteTask={deleteTask} />
     </main>
   )
 }

@@ -3,20 +3,22 @@ import { Badge } from './Badge';
 import { Task } from './Task';
 import clipboardImg from '../assets/clipboard.svg';
 import './Tasks.css';
+import { ITask } from '../contracts/ITask';
 
 interface TasksProps {
     tasks: {
         content: string,
         done: boolean
-    }[]
+    }[],
+    deleteTask: (task: ITask) => void
 }
 
-export function Tasks({ tasks }: TasksProps) {
+export function Tasks({ tasks, deleteTask }: TasksProps) {
     const totalTasks = tasks.length;
     const totalDoneTasks = tasks.filter(task => task.done === true).length;
 
     const tasksOrEmptyComponent = tasks.length ?
-        tasks.map((task, index) => <Task key={task.content + index} task={task} />) :
+        tasks.map((task, index) => <Task key={task.content + index} task={task} deleteTask={deleteTask} />) :
         [
             (
                 <div className='empty'>
