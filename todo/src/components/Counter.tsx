@@ -1,7 +1,11 @@
 import './Counter.css';
 
-export function Counter() {
+interface CounterProps {
+    count: number
+}
+
+export function Counter({ count }: CounterProps) {
     return (
-        <span className='counter'>0</span>
+        <span className='counter'>{count}</span>
     )
 }
