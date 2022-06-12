@@ -1,4 +1,4 @@
-import { Counter } from './Counter';
+import { Badge } from './Badge';
 import { Task } from './Task';
 import clipboardImg from '../assets/clipboard.svg';
 import './Tasks.css';
@@ -32,11 +32,11 @@ export function Tasks() {
             <div className='info'>
                 <div className='created'>
                     Tarefas criadas
-                    <Counter count={totalTasks} />
+                    <Badge content={totalTasks.toString()} />
                 </div>
                 <div className='done'>
                     Concluídas
-                    <Counter count={totalDoneTasks} />
+                    <Badge content={totalDoneTasks + ' de ' + totalTasks} />
                 </div>
             </div>
             {tasksOrEmptyComponent}
